@@ -2,7 +2,9 @@ package com.blog.controller;
 
 import javax.validation.Valid;
 
+import org.apache.catalina.SessionEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.Selection;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
+import javax.servlet.http.HttpSession;
 import com.blog.model.User;
 import com.blog.service.UserService;
 
@@ -60,8 +62,7 @@ public ModelAndView login(@Valid @ModelAttribute("userLogin") User userLogin, Bi
 			System.out.println(log);
 			
 			if (found) {	
-				model.addObject("message","Login Success..");
-
+				model.addObject("message","Login Success..");				
 				model.setViewName("login-authori");
 				return model;
 			} else {				
@@ -74,19 +75,6 @@ public ModelAndView login(@Valid @ModelAttribute("userLogin") User userLogin, Bi
 		
 	}
 
-@RequestMapping(value="/failure", method=RequestMethod.GET)
-public String loginFalse() {
-		return "failure"; 
-	}
 
-@RequestMapping(value="/success", method=RequestMethod.GET)
-public String loginSuccess() {
-		return "success"; 
-	}
-
-public String helloWorld(Model model) {
-    model.addAttribute("message", "Hello World!");
-    return "helloWorld";
-}
 
 }
