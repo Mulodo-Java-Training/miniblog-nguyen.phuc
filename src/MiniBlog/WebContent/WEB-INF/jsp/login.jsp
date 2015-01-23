@@ -1,121 +1,96 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<%@page contentType="text/html" pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="assets/css/bootstrap-united.css" rel="stylesheet" />
-
-<style>
-.error {
-	color: #ff0000;
-	font-size: 0.9em;
-	font-weight: bold;
-}
-
-.errorblock {
-	color: #000;
-	background-color: #ffEEEE;
-	border: 3px solid #ff0000;
-	padding: 8px;
-	margin: 16px;
-}
-</style>
-<title>Student Enrollment Login</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
+	
 </head>
 <body>
-	<script src="jquery-1.8.3.js">
+	
+	
+	
+
+	
+	<div class="container-fluid" style="background-color: #28AAE0;border-color: #28AAE0;">
+		<div class="container">
+				<div class="navbar-header col-md-3">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="glyphicon glyphicon-align-justify" style="color:#fff"></span>
+					</button>
+					<a class="logo" href="index.html">Mini Blog</a>
+				</div>
+				<div class="col-md-5" style="margin-top: 8px;">
+					<form role="form" >
+						
+					<div class="input-group">
+						<input name="word" class="form-control" placeholder="Firstname, Lastname, Username" type="text">
+						<span class="input-group-btn">
+							<input class="btn btn-primary" value="Search" type="submit">
+						</span>
 		
-	</script>
-
-	<script src="bootstrap/js/bootstrap.js">
-		
-	</script>
-
-	<div class="navbar navbar-default">
-
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-responsive-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-		</div>
-
-		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search">
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/StudentEnrollmentWithSpring">Home</a></li>
-				<li><a href="signup.html">Signup</a></li>
-				<li class="active"><a href="login.html">Login</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Explore<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Contact us</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Further Actions</a></li>
-					</ul></li>
-			</ul>
-		</div>
-		<!-- /.nav-collapse -->
-	</div>
-
-	<div class="container">
-		<div class="jumbotron">
-			<div>
+					</div><!-- /input-group -->
 			
-			</div>
+					</form>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse col-md-4">
+	
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="list-all-posts.html">Blog</a></li>
+						<li class="active"><a href="#about">Login</a></li>
+						
+					</ul>
+				</div>
 		</div>
-
-		<div></div>
 	</div>
-
-	<div class="col-lg-6 col-lg-offset-3">
-		<div class="well">
+	<div class="clearfix"></div>
+	<div class="container">
+		<div class="row" style="margin-top:10px;">
+			<ol class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li>Login</li>
+			</ol>
+			<!--Content-->
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6">
-						<form:form id="myForm" method="post"
-							class="bs-example form-horizontal" commandName="userLogin">
-							<fieldset>
-
-								<div class="form-group">
-									<label for="userNameInput" class="col-lg-3 control-label">User
-										Name</label>
-									<div class="col-lg-9">
-										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="User Name" />
-										<form:errors path="userName" cssClass="error" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
-									<div class="col-lg-9">
-										<form:input type="password" class="form-control"
-											path="passWord" id="passwordInput" placeholder="Password" />
-										<form:errors path="passWord" cssClass="error" />
-									</div>
-								</div>
-
-								<div class="col-lg-9 col-lg-offset-3">
-									<button class="btn btn-default">Cancel</button>
-
-									<button class="btn btn-primary">Login</button>
-								</div>
-
-							</fieldset>
-						</form:form>
-					</div>
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<form:form  role="form" style="margin-top: 100px;" method="post" commandName="userLogin">
+						<!--<div class="alert alert-success" role="alert">Login success</div>-->
+						<div class="alert alert-danger" role="alert">
+							<c:out value="${message}"/>
+	
+						<form:errors path="userName" cssClass="error" /> <br> 
+						<form:errors path="passWord" cssClass="error" />
+						</div>
+					  <div class="form-group">
+					    <label for="exampleInputEmail1">Username</label>
+					    <form:input path="userName" class="form-control" id="exampleInputEmail1" placeholder="Enter username"/>
+					  </div>
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">Password</label>
+					     <form:input type="password" class="form-control" path="passWord" id="exampleInputPassword1" placeholder="Enter password" />
+					  </div>
+					  <button type="submit" class="btn btn-default">Login</button>
+					  
+					</form:form>
+				</div>
 				</div>
 			</div>
+			<!--End Content-->
+				
 		</div>
+
+	<script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/res/js/bootstrap.js"></script>
 	</div>
-
-
 </body>
 </html>

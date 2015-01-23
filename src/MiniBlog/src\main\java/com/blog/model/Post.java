@@ -19,7 +19,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="post")
 public class Post {
 	@Id
-	
 	@GeneratedValue(strategy=GenerationType.AUTO) //for autonumber
 	private int id;
 	private String title;

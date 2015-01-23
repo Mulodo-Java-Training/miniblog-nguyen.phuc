@@ -18,7 +18,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/userm")
 	public String setupForm(Map<String, Object> map){
 		User user = new User();
 		map.put("user", user);

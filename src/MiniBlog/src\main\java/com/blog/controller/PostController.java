@@ -11,12 +11,12 @@ public class PostController
 {
 	@Autowired
 	private PostDao postDao;
-	@RequestMapping("/post")
+	@RequestMapping("/")
 	
 	public String getListPost(Map<String, Object> map){
 	
-		map.put("userList", postDao.getAllPost());
-		return "user";
+		map.put("postList", postDao.getAllPost());
+		return "index";
 	}
 
 

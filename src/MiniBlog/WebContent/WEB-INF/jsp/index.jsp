@@ -1,22 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+<%@ include file="/WEB-INF/jsp/includes.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
-	
+	<title>Home</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
 </head>
 <body>
-	
-	
-	
-
 	
 	<div class="container-fluid" style="background-color: #28AAE0;border-color: #28AAE0;">
 		<div class="container">
@@ -28,10 +23,10 @@
 					<a class="logo" href="index.html">Mini Blog</a>
 				</div>
 				<div class="col-md-5" style="margin-top: 8px;">
-					<form role="form" >
+					<form role="form" action="searchUser.html">
 						
 					<div class="input-group">
-						<input name="word" class="form-control" placeholder="Firstname, Lastname, Username" type="text">
+						<input name="word" class="form-control txtSearch"  placeholder="Firstname, Lastname, Username" type="text">
 						<span class="input-group-btn">
 							<input class="btn btn-primary" value="Search" type="submit">
 						</span>
@@ -44,8 +39,7 @@
 	
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="list-all-posts.html">Blog</a></li>
-						<li class="active"><a href="#about">Login</a></li>
-						
+						<li><a href="login.html">Login</a></li>
 					</ul>
 				</div>
 		</div>
@@ -55,37 +49,47 @@
 		<div class="row" style="margin-top:10px;">
 			<ol class="breadcrumb">
 				<li><a href="index.html">Home</a></li>
-				<li>Login</li>
 			</ol>
 			<!--Content-->
-			<div class="container">
-				<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<form:form  role="form" style="margin-top: 100px;" method="post" commandName="userLogin">
-						<!--<div class="alert alert-success" role="alert">Login success</div>-->
-						<div class="alert alert-danger" role="alert">
-							<c:out value="${message}"/>
+			<div class="container-fluid">
+			
+			<c:forEach items="${postList}" var="post">
 	
-						<form:errors path="userName" cssClass="error" /> <br> 
-						<form:errors path="passWord" cssClass="error" />
-						</div>
-					  <div class="form-group">
-					    <label for="exampleInputEmail1">Username</label>
-					    <form:input path="userName" class="form-control" id="exampleInputEmail1" placeholder="Enter username"/>
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleInputPassword1">Password</label>
-					     <form:input type="password" class="form-control" path="passWord" id="exampleInputPassword1" placeholder="Enter password" />
-					  </div>
-					  <button type="submit" class="btn btn-default">Login</button>
-					  
-					</form:form>
-				</div>
-				</div>
+				<div class="row">
+				  <div class="col-md-2">
+				    <a href="#">
+				     <img data-holder-rendered="true" src="${post.image}" style="" class="img-responsive" alt="">
+				    </a>	
+				  </div>
+				  <div class="col-md-4">
+				 
+				  	<div class="title"><a href="#">${post.title}</a></div>
+				  	<div class="date"> ${post.created_at} | Author: <a href="listUserPost.html">${post.user_id}  </a></div>
+				  	<div class="description">
+				  		
+				  		 
+				  		  ${post.description}
+				  	</div>
+				  </div>
+				  <div class="col-md-2">
+				    <a href="#">
+				     <img data-holder-rendered="true" src=" ${post.image}" style="" class="img-responsive" alt="">
+				    </a>	
+				  </div>
+				  <div class="col-md-4">
+				  	<div class="title"><a href="#">Blog 1</a></div>
+				  	<div class="date">  ${post.created_at} | Author: <a href="listUserPost.html">${post.user_id}</a></div>
+				  	<div class="description">
+				  		 ${post.description}
+				  	</div>
+				  </div>
+				</div><br>
+				</c:forEach>
+				
+				
+				
 			</div>
 			<!--End Content-->
-				
 		</div>
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery.js"></script>

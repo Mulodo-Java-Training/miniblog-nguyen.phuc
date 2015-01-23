@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.blog.dao.PostDao;
 import com.blog.model.Post;
 
@@ -12,10 +14,11 @@ import com.blog.model.Post;
 public class PostDaoImpl implements PostDao {
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+	@Transactional
 	@Override
 	public List<Post> getAllPost() {
-		return sessionFactory.getCurrentSession().createQuery("from post").list();
+		List<Post> list = sessionFactory.getCurrentSession().createQuery("from Post").list();
+		return list;
 		
 	}
 
