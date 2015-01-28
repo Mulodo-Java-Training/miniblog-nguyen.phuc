@@ -12,4 +12,6 @@ public interface UserService {
 	public void save(User user);
 	boolean findByLogin(String userName, String password);
 	boolean findByUserName(String userName);
+	User getUserByUserName(String userName);
+
 }

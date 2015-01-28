@@ -69,5 +69,9 @@ public class UserServiceImpl implements UserService {
 		
 		return false;
 	}
-
+	public User getUserByUserName(String userName) {
+		User stud = userDao.findByUserName(userName);
+		return stud;
+		
+	}
 }
