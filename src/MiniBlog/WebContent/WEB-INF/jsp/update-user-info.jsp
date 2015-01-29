@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ include file="/WEB-INF/jsp/includes.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<%@ page import="java.util.Calendar" %>
+<%@ page import="com.blog.model.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,7 +130,7 @@
 						</button>
 						You have updated unsuccessfully
 					</div>
-					<form class="form-horizontal" role="form">
+					<form:form  class="form-horizontal" role="form" method="post" commandName="userUpdate">
 						<div class="row">
 							<div class="col-md-12">
 								<span class="btn btn-primary blue-tab no-blue-border-top">Basic info</span>
@@ -139,13 +143,13 @@
 								<div class="form-group">
 									<label for="first-name" class="col-md-3 control-label">First name</label>
 									<div class="col-md-9">
-										<input value="<c:out value="${userinfo.firstName}"/>" type="text" class="form-control" id="first-name">
+										<input  value="<c:out value="${userinfo.firstName}"/>" type="text" class="form-control" id="first-name">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="last-name" class="col-md-3 control-label">Last name</label>
 									<div class="col-md-9">
-										<input value="<c:out value="${userinfo.lastName}"/>" type="text" class="form-control" id="last-name">
+										<input  value="<c:out value="${userinfo.lastName}"/>" type="text" class="form-control" id="last-name" >
 									</div>
 								</div>
 								<div class="form-group">
@@ -161,38 +165,29 @@
 									<label for="birthday" class="col-md-3 control-label">Birthday</label>
 									<div class="col-md-9" style="display:inline-flex">
 										<select class="styled-select" name="day" id="birthday">
-											<option value="0">Day</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="10">10</option>
-											<option value="11">11</option>
-											<option value="12">12</option>
-											<option value="13">13</option>
-											<option value="14">14</option>
-											<option value="15">15</option>
-											<option value="16">16</option>
-											<option value="17">17</option>
-											<option value="18">18</option>
-											<option value="19">19</option>
-											<option value="20">20</option>
-											<option value="21">21</option>
-											<option value="22">22</option>
-											<option value="23">23</option>
-											<option value="24">24</option>
-											<option value="25">25</option>
-											<option value="26">26</option>
-											<option value="27">27</option>
-											<option value="28">28</option>
-											<option value="29" selected="true">29</option>
-											<option value="30">30</option>
-											<option value="31">31</option>
+										<option value="0">Day</option>
+										<%  
+										
+									     Calendar cal = Calendar.getInstance();
+										User userinfo = (User)request.getAttribute("userinfo");
+									    cal.setTime(userinfo.getBirthday());
+									    int day = cal.get(Calendar.DAY_OF_MONTH);
+									   // int day=4;
+										String str;
+										for(int i=1; i<31; i++){
+											if(i==day)
+											{
+												str = String.format("<option value='%d' selected='true'>%d</option>",i,i);
+											}
+											else
+											{
+												str = String.format("<option value='%d'>%d</option>",i,i);
+											}
+
+								              out.print(str);
+								         } %>
+											
+											
 										</select>
 
 										<select class="styled-select" name="month" id="birthday">
@@ -250,7 +245,7 @@
 								<div class="form-group">
 									<label for="address" class="col-md-3 control-label">Addreess</label>
 									<div class="col-md-9">
-										<input value="<c:out value="${userinfo.address}"/>" type="text" class="form-control" id="address">
+										<form:input value="<c:out value="${userinfo.address}"/>" type="text" class="form-control" id="address"/>
 									</div>
 								</div>
 
@@ -268,14 +263,14 @@
 								<div class="form-group">
 									<label for="email" class="col-md-3 control-label">Email</label>
 									<div class="col-md-9">
-										<input value="<c:out value="${userinfo.email}"/>" type="email" class="form-control" id="email">
+										<form:input value="<c:out value="${userinfo.email}"/>" type="email" class="form-control" id="email"/>
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label for="mobile" class="col-md-3 control-label">Mobile</label>
 									<div class="col-md-9">
-										<input value="<c:out value="${userinfo.mobile}"/>" type="text" class="form-control" id="mobile">
+									<form:input value="<c:out value="${userinfo.mobile}"/>" type="text" class="form-control" id="mobile"/>
 									</div>
 								</div>
 							</div>
@@ -292,7 +287,7 @@
 								<button class="btn btn-primary" style="border-radius:0px;">CANCEL</button>
 							</div>
 						</div>
-					</form>
+					</form:form >
 					</div>
 				
 			

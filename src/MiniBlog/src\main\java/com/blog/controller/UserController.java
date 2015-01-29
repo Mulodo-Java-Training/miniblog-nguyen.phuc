@@ -56,6 +56,15 @@ public class UserController {
 	    model.addAttribute("userinfo", user );
 	    return "update-user-info";
 	}
+	@RequestMapping(value="/home/account/{username}", method=RequestMethod.POST)
+	public String doeditUser(@ModelAttribute User user, BindingResult result, @RequestParam String action, Map<String, Object> map, Model model,HttpServletRequest request){
+		User userResult = new User();
+		userService.edit(user);
+		userResult = user;
+		model.addAttribute("userinfo", userResult );
+	    return "update-user-info";
+	}
+	
 	@RequestMapping(value="/user.do", method=RequestMethod.POST)
 	public String doActions(@ModelAttribute User user, BindingResult result, @RequestParam String action, Map<String, Object> map){
 		User userResult = new User();
