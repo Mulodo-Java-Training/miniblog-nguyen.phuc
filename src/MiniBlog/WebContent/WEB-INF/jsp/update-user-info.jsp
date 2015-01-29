@@ -139,13 +139,13 @@
 								<div class="form-group">
 									<label for="first-name" class="col-md-3 control-label">First name</label>
 									<div class="col-md-9">
-										<input value="Anh" type="text" class="form-control" id="first-name">
+										<input value="<c:out value="${userinfo.firstName}"/>" type="text" class="form-control" id="first-name">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="last-name" class="col-md-3 control-label">Last name</label>
 									<div class="col-md-9">
-										<input value="Hoang Viet" type="text" class="form-control" id="last-name">
+										<input value="<c:out value="${userinfo.lastName}"/>" type="text" class="form-control" id="last-name">
 									</div>
 								</div>
 								<div class="form-group">
@@ -234,7 +234,7 @@
 									<input onchange="handlerInputFileChange(this)" class="upload" type="file">
 								</div>	
 								
-								<img id ="image-upload" class="img-thumbnail" style="width:150px;height:150px;" src="${pageContext.request.contextPath}/res/img/200x200.gif" alt="Avatar User" />
+								<img id ="image-upload" class="img-thumbnail" style="width:150px;height:150px;" src="${pageContext.request.contextPath}/res/img/<c:out value="${userinfo.avatar}"/>" alt="Avatar User" />
 							</div>
 						</div>
 
@@ -250,7 +250,7 @@
 								<div class="form-group">
 									<label for="address" class="col-md-3 control-label">Addreess</label>
 									<div class="col-md-9">
-										<input value="Hoc Mon" type="text" class="form-control" id="address">
+										<input value="<c:out value="${userinfo.address}"/>" type="text" class="form-control" id="address">
 									</div>
 								</div>
 
@@ -268,14 +268,14 @@
 								<div class="form-group">
 									<label for="email" class="col-md-3 control-label">Email</label>
 									<div class="col-md-9">
-										<input value="hoangvietanh@yahoo.com" type="email" class="form-control" id="email">
+										<input value="<c:out value="${userinfo.email}"/>" type="email" class="form-control" id="email">
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label for="mobile" class="col-md-3 control-label">Mobile</label>
 									<div class="col-md-9">
-										<input value="0169.8616.831" type="text" class="form-control" id="mobile">
+										<input value="<c:out value="${userinfo.mobile}"/>" type="text" class="form-control" id="mobile">
 									</div>
 								</div>
 							</div>

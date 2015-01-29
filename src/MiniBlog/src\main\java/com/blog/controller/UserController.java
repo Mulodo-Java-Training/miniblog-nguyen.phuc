@@ -54,7 +54,7 @@ public class UserController {
 		User user = this.userService.getUserByUserName(username);
 	//model.addAttribute("limit_avatar", limit_avatar );
 	    model.addAttribute("userinfo", user );
-	    return "UpdateUserInfo";
+	    return "update-user-info";
 	}
 	@RequestMapping(value="/user.do", method=RequestMethod.POST)
 	public String doActions(@ModelAttribute User user, BindingResult result, @RequestParam String action, Map<String, Object> map){
