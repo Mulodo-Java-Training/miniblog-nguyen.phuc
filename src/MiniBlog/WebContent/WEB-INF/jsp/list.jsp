@@ -28,8 +28,8 @@
                 <td>${user.getFirstName()}</td>
                 <td>${user.getLastName()}</td>
                 <td>${user.getAddress()}</td>
-                <td><a href="/edit/<c:out value="${user.getUserName()}"/>">Update</a></td>
-                <td><a href="/remove/<c:out value="${user.getUserName()}"/>">Delete</a></td>
+                <td><a href="/user/edit/<c:out value="${user.getUserName()}"/>">Update</a></td>
+                <td><a href="/user/remove/<c:out value="${user.getUserName()}"/>">Delete</a></td>
                
             </tr>
         </c:forEach> 

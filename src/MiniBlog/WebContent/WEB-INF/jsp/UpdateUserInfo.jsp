@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ include file="/WEB-INF/jsp/includes.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>UpdaeUserInfo</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
+		
 	<style>
 
 		.styled-select{
@@ -229,7 +233,8 @@
 									<span>Change Avatar</span>
 									<input onchange="handlerInputFileChange(this)" class="upload" type="file">
 								</div>	
-								<img id ="image-upload" class="img-thumbnail" style="width:150px;height:150px;" src="img/200x200.gif" alt="Avatar User" />
+								
+								<img id ="image-upload" class="img-thumbnail" style="width:150px;height:150px;" src="${pageContext.request.contextPath}/res/img/200x200.gif" alt="Avatar User" />
 							</div>
 						</div>
 
@@ -296,8 +301,9 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
+
+	<script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/res/js/bootstrap.js"></script>
 <script>
 	$('#mobile').keypress(function(evt) {
 		var theEvent = evt || window.event;
