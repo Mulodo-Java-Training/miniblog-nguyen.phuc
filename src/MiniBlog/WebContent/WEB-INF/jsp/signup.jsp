@@ -1,6 +1,4 @@
-	<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -151,10 +149,10 @@
 								<div class="form-group">
 									<label for="dateOfBirthInput" class="col-lg-3 control-label">Date
 										of Birth</label>
-									<div class="date form_date col-lg-9" data-date-format="mm/dd/yyyy" data-date-viewmode="years">
-										<form:input type="text" class="form-control"											
-											path="birthday" id="dateOfBirthInput"
-											placeholder="Date of Birth" />
+									<div class="date form_date col-lg-9"
+										data-date-format="mm/dd/yyyy" data-date-viewmode="years">
+										<form:input type="text" class="form-control" path="birthday"
+											id="dateOfBirthInput" placeholder="Date of Birth" />
 										<form:errors path="birthday" cssClass="error" />
 									</div>
 								</div>
@@ -163,9 +161,8 @@
 									<label for="emailAddressInput" class="col-lg-3 control-label">Email
 										Address</label>
 									<div class="col-lg-9">
-										<form:input type="text" class="form-control"
-											path="email" id="emailAddressInput"
-											placeholder="Email Address" />
+										<form:input type="text" class="form-control" path="email"
+											id="emailAddressInput" placeholder="Email Address" />
 										<form:errors path="email" cssClass="error" />
 									</div>
 								</div>
@@ -175,7 +172,7 @@
 
 									<button class="btn btn-primary" data-toggle="modal"
 										data-target="#themodal">Submit</button>
-									<div id="themodal" class="modal fade" data-backdrop="static">									
+									<div id="themodal" class="modal fade" data-backdrop="static">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -218,9 +215,9 @@
 	<script type="text/javascript">
 		$(function() {
 			var yesButton = $("#yesbutton");
-			var progress = $("#doitprogress");		
-			
-			yesButton.click(function() {		
+			var progress = $("#doitprogress");
+
+			yesButton.click(function() {
 				yesButton.button("loading");
 
 				var counter = 0;
@@ -233,10 +230,10 @@
 						setTimeout(countDown, 100);
 					}
 				};
-				
+
 				setTimeout(countDown, 100);
 			});
-			
+
 		});
 	</script>
 

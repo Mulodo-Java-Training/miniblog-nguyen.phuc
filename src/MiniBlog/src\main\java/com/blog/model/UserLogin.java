@@ -6,16 +6,16 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-@Entity(name="UserLogin")
-@Table(name="user")
+@Entity(name = "UserLogin")
+@Table(name = "user")
 public class UserLogin {
 
 	@NotEmpty
-	@Size(min=4, max=20)
+	@Size(min = 4, max = 20)
 	private String userName;
-		
+
 	@NotEmpty
-	@Size(min=4, max=8)
+	@Size(min = 4, max = 8)
 	private String password;
 
 	public String getPassword() {
@@ -32,5 +32,5 @@ public class UserLogin {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}	
+	}
 }

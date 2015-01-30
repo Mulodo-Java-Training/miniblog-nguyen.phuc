@@ -14,7 +14,7 @@ import com.blog.model.User;
 public class UserDaoImpl implements UserDao {
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public void add(User user) {
 		sessionFactory.getCurrentSession().save(user);
@@ -26,30 +26,34 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void delete(int userId) {		
+	public void delete(int userId) {
 		sessionFactory.getCurrentSession().delete(getUser(userId));
 	}
 
 	@Override
 	public User getUser(int userId) {
-		return (User)sessionFactory.getCurrentSession().get(User.class, userId);
+		return (User) sessionFactory.getCurrentSession()
+				.get(User.class, userId);
 	}
-	
 
 	@Transactional
 	public User findByUserName(String userName) {
 
-	User usr=(User) sessionFactory.getCurrentSession().createQuery("select s from User s where s.userName = ?").setParameter(0, userName).uniqueResult(); 
+		User usr = (User) sessionFactory.getCurrentSession()
+				.createQuery("select s from User s where s.userName = ?")
+				.setParameter(0, userName).uniqueResult();
 
-		if(usr != null) {
+		if (usr != null) {
 			return usr;
 		}
-		
+
 		return null;
 	}
+
 	@Override
 	public List<User> getAllUser() {
-		return sessionFactory.getCurrentSession().createQuery("from User").list();
+		return sessionFactory.getCurrentSession().createQuery("from User")
+				.list();
 	}
 
 }

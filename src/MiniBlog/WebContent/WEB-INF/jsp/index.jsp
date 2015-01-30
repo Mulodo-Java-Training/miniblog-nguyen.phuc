@@ -39,7 +39,7 @@
 	
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="list-all-posts.html">Blog</a></li>
-						<li><a href="login.html">Login</a></li>
+						<li><a href="login">Login</a></li>
 					</ul>
 				</div>
 		</div>
@@ -48,7 +48,7 @@
 	<div class="container">
 		<div class="row" style="margin-top:10px;">
 			<ol class="breadcrumb">
-				<li><a href="index.html">Home</a></li>
+				<li><a href="index">Home</a></li>
 			</ol>
 			<!--Content-->
 			<div class="container-fluid">
