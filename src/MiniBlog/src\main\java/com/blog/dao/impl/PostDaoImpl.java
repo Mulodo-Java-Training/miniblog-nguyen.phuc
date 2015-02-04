@@ -15,6 +15,7 @@ public class PostDaoImpl implements PostDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
 	public List<Post> getAllPost() {

@@ -20,27 +20,27 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "user")
 public class User {
 	@Id
-	@Column(name = "id")
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	// for autonumber
-	private int userID;
+	private int id;
 
-	@Column(name = "username")
+	@Column
 	@NotEmpty
-	@Size(min = 4, max = 20)
-	private String userName;
-
-	@Column(name = "password")
+	//@Size(min = 4, max = 20)
+	private String username;
+	
+	@Column
 	@NotEmpty
-	@Size(min = 4, max = 8)
-	private String passWord;
-
-	@Column(name = "firstname")
+	//@Size(min = 4, max = 8)
+	private String password;
+	
+	@Column
 	@NotEmpty
-	private String firstName;
-
-	@Column(name = "lastname")
-	private String lastName;
+	private String firstname;
+	
+	@Column
+	private String lastname;
 
 	@Column
 	private String avatar;
@@ -60,35 +60,36 @@ public class User {
 	@Column
 	private String mobile;
 	@Column
-	private int group = 0;
+	private int group_user = 0;
 
 	@Column(name = "last_login")
 	private int lastLogin;
+	
 	@Column(name = "login_hash")
-	private String loginHash;
+	private String login_hash;
 
 	@Column(name = "created_at")
 	@Type(type = "date")
-	private Date createAt;
+	private Date created_at;
 
 	@Column(name = "updated_at")
 	@Type(type = "date")
-	private Date updateAt;
+	private Date updated_at;
 
 	public User() {
 	}
 
-	public User(int userID, String userName, String passWord, String firstName,
-			String lastName, String avatar, int gender, Date birthday,
+	public User(int userID, String username, String password, String firstname,
+			String lastname, String avatar, int gender, Date birthday,
 			String address, String city, String email, String mobile,
 			int group, int lastLogin, String loginHash, Date createAt,
 			Date updateAt) {
 		super();
-		this.userID = userID;
-		this.userName = userName;
-		this.passWord = passWord;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.id = userID;
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.avatar = avatar;
 		this.gender = gender;
 		this.birthday = birthday;
@@ -96,147 +97,265 @@ public class User {
 		this.city = city;
 		this.email = email;
 		this.mobile = mobile;
-		this.group = group;
+		this.group_user = group;
 		this.lastLogin = lastLogin;
-		this.loginHash = loginHash;
-		this.createAt = createAt;
-		this.updateAt = updateAt;
+		this.login_hash = loginHash;
+		this.created_at = createAt;
+		this.updated_at = updateAt;
 	}
 
-	public int getUserID() {
-		return userID;
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int _id) {
+		this.id = _id;
 	}
 
-	public String getUserName() {
-		return userName;
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPassWord() {
-		return passWord;
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	/**
+	 * @return the firstname
+	 */
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	/**
+	 * @param firstname the firstname to set
+	 */
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	/**
+	 * @return the lastname
+	 */
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	/**
+	 * @param lastname the lastname to set
+	 */
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
+	/**
+	 * @return the avatar
+	 */
 	public String getAvatar() {
 		return avatar;
 	}
 
+	/**
+	 * @param avatar the avatar to set
+	 */
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
 
+	/**
+	 * @return the gender
+	 */
 	public int getGender() {
 		return gender;
 	}
 
+	/**
+	 * @param gender the gender to set
+	 */
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
 
+	/**
+	 * @return the birthday
+	 */
 	public Date getBirthday() {
 		return birthday;
 	}
 
+	/**
+	 * @param birthday the birthday to set
+	 */
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
+	/**
+	 * @return the address
+	 */
 	public String getAddress() {
 		return address;
 	}
 
+	/**
+	 * @param address the address to set
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	/**
+	 * @return the city
+	 */
 	public String getCity() {
 		return city;
 	}
 
+	/**
+	 * @param city the city to set
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	/**
+	 * @return the email
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * @param email the email to set
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * @return the mobile
+	 */
 	public String getMobile() {
 		return mobile;
 	}
 
+	/**
+	 * @param mobile the mobile to set
+	 */
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
-	public int getGroup() {
-		return group;
+	/**
+	 * @return the group
+	 */
+	public int getGroup_user() {
+		return group_user;
 	}
 
-	public void setGroup(int group) {
-		this.group = group;
+	/**
+	 * @param group the group to set
+	 */
+	public void setGroup_user(int group) {
+		this.group_user = group;
 	}
 
+	/**
+	 * @return the lastLogin
+	 */
 	public int getLastLogin() {
 		return lastLogin;
 	}
 
+	/**
+	 * @param lastLogin the lastLogin to set
+	 */
 	public void setLastLogin(int lastLogin) {
 		this.lastLogin = lastLogin;
 	}
 
-	public String getLoginHash() {
-		return loginHash;
+	/**
+	 * @return the login_hash
+	 */
+	public String getLogin_hash() {
+		return login_hash;
 	}
 
-	public void setLoginHash(String loginHash) {
-		this.loginHash = loginHash;
+	/**
+	 * @param login_hash the login_hash to set
+	 */
+	public void setLogin_hash(String login_hash) {
+		this.login_hash = login_hash;
 	}
 
-	public Date getCreateAt() {
-		return createAt;
+	/**
+	 * @return the created_at
+	 */
+	public Date getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+	/**
+	 * @param created_at the created_at to set
+	 */
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
 	}
 
-	public Date getUpdateAt() {
-		return updateAt;
+	/**
+	 * @return the updated_at
+	 */
+	public Date getUpdated_at() {
+		return updated_at;
 	}
 
-	public void setUpdateAt(Date updateAt) {
-		this.updateAt = updateAt;
+	/**
+	 * @param updated_at the updated_at to set
+	 */
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password="
+				+ password + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", avatar=" + avatar + ", gender=" + gender
+				+ ", birthday=" + birthday + ", address=" + address + ", city="
+				+ city + ", email=" + email + ", mobile=" + mobile
+				+ ", group_user=" + group_user + ", lastLogin=" + lastLogin
+				+ ", login_hash=" + login_hash + ", created_at=" + created_at
+				+ ", updated_at=" + updated_at + "]";
+	}
+
 
 }

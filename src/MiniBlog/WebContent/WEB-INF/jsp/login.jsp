@@ -74,18 +74,18 @@
 							<div class="alert alert-danger" role="alert">
 								<c:out value="${message}" />
 
-								<form:errors path="userName" cssClass="error" />
+								<form:errors path="username" cssClass="error" />
 								<br>
-								<form:errors path="passWord" cssClass="error" />
+								<form:errors path="password" cssClass="error" />
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Username</label>
-								<form:input path="userName" class="form-control"
+								<form:input path="username" class="form-control"
 									id="exampleInputEmail1" placeholder="Enter username" />
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Password</label>
-								<form:input type="password" class="form-control" path="passWord"
+								<form:input type="password" class="form-control" path="password"
 									id="exampleInputPassword1" placeholder="Enter password" />
 							</div>
 							<button type="submit" class="btn btn-default">Login</button>
