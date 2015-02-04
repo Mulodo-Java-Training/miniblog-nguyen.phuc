@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jan 23, 2015 at 11:22 AM
+-- Generation Time: Feb 04, 2015 at 09:48 AM
 -- Server version: 5.5.38
 -- PHP Version: 5.6.2
 
@@ -71,26 +71,26 @@ CREATE TABLE `user` (
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `avatar` varchar(100) DEFAULT NULL,
-  `gender` tinyint(4) NOT NULL DEFAULT '1',
+  `gender` tinyint(4) DEFAULT '1',
   `birthday` date NOT NULL,
   `address` varchar(200) DEFAULT NULL,
   `city` varchar(30) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `mobile` varchar(20) DEFAULT NULL,
-  `group` int(11) NOT NULL DEFAULT '0',
-  `last_login` int(11) NOT NULL,
+  `group_user` int(11) DEFAULT '0',
+  `last_login` int(11) DEFAULT NULL,
   `login_hash` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `firstname`, `lastname`, `avatar`, `gender`, `birthday`, `address`, `city`, `email`, `mobile`, `group`, `last_login`, `login_hash`, `created_at`, `updated_at`) VALUES
-(1, 'phucios', '123456', 'phúc', 'nguyen', NULL, 1, '2015-01-10', 'dấdad', 'aaaa', 'aaa@gmail.com', '2324234', 0, 0, NULL, '2013-12-02 05:19:37', '2015-01-13 03:13:16'),
-(2, 'phuc', '123456', 'sadasd', 'aaa', 'aaaa', 1, '2015-01-12', NULL, NULL, '', NULL, 0, 0, NULL, '2015-01-12 00:00:00', '2015-01-12 00:00:00');
+INSERT INTO `user` (`id`, `username`, `password`, `firstname`, `lastname`, `avatar`, `gender`, `birthday`, `address`, `city`, `email`, `mobile`, `group_user`, `last_login`, `login_hash`, `created_at`, `updated_at`) VALUES
+(1, 'phucios', '123456', 'phúc', 'nguyen', NULL, 1, '2015-01-10', 'd?dad', 'aaaa', 'ccc@gmail.com', '2324234', 0, 0, NULL, '2013-12-02 00:00:00', '2015-01-13 00:00:00'),
+(2, 'phuc', '123456', 'Nguyen', 'Phuc', 'phucavatar.jpg', 1, '2015-01-12', '111D Ly Chinh Thang, P7, Q3', 'HCMC', 'phucit9x@gmail.com', '0983482492', 1, 0, NULL, '2015-01-12 00:00:00', '2015-01-12 00:00:00');
 
 --
 -- Indexes for dumped tables
