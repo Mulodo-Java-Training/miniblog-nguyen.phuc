@@ -36,7 +36,7 @@ public class LoginController {
 			BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return "signup";
-		} else if (userService.findByUserName(user.getUserName())) {
+		} else if (userService.findByUserName(user.getUsername())) {
 			model.addAttribute("message",
 					"User Name exists. Try another user name");
 			return "signup";
@@ -59,36 +59,33 @@ public class LoginController {
 			@Valid @ModelAttribute("userLogin") User userLogin,
 			BindingResult result, ModelAndView model, HttpServletRequest request) {
 
-		boolean found = userService.findByLogin(userLogin.getUserName(),
-				userLogin.getPassWord());
+		boolean found = userService.findByLogin(userLogin.getUsername(),
+				userLogin.getPassword());
 
-		String log = String.format("user[%s][%s]", userLogin.getUserName(),
-				userLogin.getPassWord());
-		System.out.println(log);
+		//String log = String.format("user[%s][%s]", userLogin.getUserName(),
+			//	userLogin.getPassWord());
+		//System.out.println(log);
 
 		if (found) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("name", userLogin.getUserName());
-
+			session.setAttribute("name", userLogin.getUsername());
 			model.addObject("message", "Login Success..");
 			model.setViewName("login");
 			return model;
 		} else {
-
 			model.addObject("message", "Login False..Please try again.");
 			model.setViewName("login");
 			return model;
 		}
 
 	}
-
+	/**
+	 * @Method:logout
+	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelAndView model, HttpServletRequest request) {
 		model.addObject("message", "logout Success..");
-
-		request.getSession().removeAttribute("user_loged_in");
-		// User u = new User();
-		// model.addAttribute("User", u);
+		request.getSession().invalidate();
 		return "redirect:/";
 	}
 

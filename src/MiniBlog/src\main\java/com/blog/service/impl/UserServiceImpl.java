@@ -3,6 +3,7 @@ package com.blog.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import com.blog.dao.UserDao;
 import com.blog.model.User;
 import com.blog.service.UserService;
 @Service
+@Primary
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
@@ -50,18 +52,18 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
-	public boolean findByLogin(String userName, String password) {	
-		User stud = userDao.findByUserName(userName);
+	public boolean findByLogin(String username, String password) {	
+		User stud = userDao.findByUserName(username);
 		
-		if(stud != null && stud.getPassWord().equals(password)) {
+		if(stud != null && stud.getPassword().equals(password)) {
 			return true;
 		} 
 		
 		return false;		
 	}
 
-	public boolean findByUserName(String userName) {
-		User stud = userDao.findByUserName(userName);
+	public boolean findByUserName(String username) {
+		User stud = userDao.findByUserName(username);
 		
 		if(stud != null) {
 			return true;
@@ -69,8 +71,8 @@ public class UserServiceImpl implements UserService {
 		
 		return false;
 	}
-	public User getUserByUserName(String userName) {
-		User stud = userDao.findByUserName(userName);
+	public User getUserByUserName(String username) {
+		User stud = userDao.findByUserName(username);
 		return stud;
 		
 	}

@@ -12,7 +12,7 @@ public class UserLogin {
 
 	@NotEmpty
 	@Size(min = 4, max = 20)
-	private String userName;
+	private String username;
 
 	@NotEmpty
 	@Size(min = 4, max = 8)
@@ -23,14 +23,14 @@ public class UserLogin {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 }

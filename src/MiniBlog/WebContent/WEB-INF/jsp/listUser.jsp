@@ -13,19 +13,19 @@
 	<table>
 		<tr>
 			<td>User ID</td>
-			<td><form:input path="userID" /></td>
+			<td><form:input path="id" /></td>
 		</tr>
 		<tr>
 			<td>User Name</td>
-			<td><form:input path="userName" /></td>
+			<td><form:input path="username" /></td>
 		</tr>
 		<tr>
 			<td>First name</td>
-			<td><form:input path="firstName" /></td>
+			<td><form:input path="firstname" /></td>
 		</tr>
 		<tr>
 			<td>Last name</td>
-			<td><form:input path="lastName" /></td>
+			<td><form:input path="lastname" /></td>
 		</tr>
 		
 		<tr>
@@ -45,9 +45,9 @@
 	<th>Last name</th>
 	<c:forEach items="${userList}" var="user">
 		<tr>
-			<td>${user.userID}</td>
-			<td>${user.firstName}</td>
-			<td>${user.lastName}</td>
+			<td>${user.id}</td>
+			<td>${user.firstname}</td>
+			<td>${user.lastname}</td>
 		</tr>
 	</c:forEach>
 </table>

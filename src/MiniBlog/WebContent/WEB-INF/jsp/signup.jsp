@@ -108,12 +108,12 @@
 								<legend>Student Enrollment Signup Form</legend>
 
 								<div class="form-group">
-									<label for="userNameInput" class="col-lg-3 control-label">User
+									<label for="usernameInput" class="col-lg-3 control-label">User
 										Name</label>
 									<div class="col-lg-9">
-										<form:input type="text" class="form-control" path="userName"
-											id="userNameInput" placeholder="User Name" />
-										<form:errors path="userName" cssClass="error" />
+										<form:input type="text" class="form-control" path="username"
+											id="usernameInput" placeholder="User Name" />
+										<form:errors path="username" cssClass="error" />
 									</div>
 								</div>
 
@@ -121,28 +121,28 @@
 									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
 									<div class="col-lg-9">
 										<form:input type="password" class="form-control"
-											path="passWord" id="passwordInput" placeholder="Password" />
-										<form:errors path="passWord" cssClass="error" />
+											path="password" id="passwordInput" placeholder="Password" />
+										<form:errors path="password" cssClass="error" />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="firstNameInput" class="col-lg-3 control-label">First
+									<label for="firstnameInput" class="col-lg-3 control-label">First
 										Name</label>
 									<div class="col-lg-9">
-										<form:input type="text" class="form-control" path="firstName"
-											id="firstNameInput" placeholder="First Name" />
-										<form:errors path="firstName" cssClass="error" />
+										<form:input type="text" class="form-control" path="firstname"
+											id="firstnameInput" placeholder="First Name" />
+										<form:errors path="firstname" cssClass="error" />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="lastNameInput" class="col-lg-3 control-label">Last
+									<label for="lastnameInput" class="col-lg-3 control-label">Last
 										Name</label>
 									<div class="col-lg-9">
-										<form:input type="text" class="form-control" path="lastName"
-											id="lastNameInput" placeholder="Last Name" />
-										<form:errors path="lastName" cssClass="error" />
+										<form:input type="text" class="form-control" path="lastname"
+											id="lastnameInput" placeholder="Last Name" />
+										<form:errors path="lastname" cssClass="error" />
 									</div>
 								</div>
 

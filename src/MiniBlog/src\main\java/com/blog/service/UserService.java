@@ -10,8 +10,8 @@ public interface UserService {
 	public User getUser(int userId);
 	public List<User> getAllUser();
 	public void save(User user);
-	boolean findByLogin(String userName, String password);
-	boolean findByUserName(String userName);
-	User getUserByUserName(String userName);
+	boolean findByLogin(String username, String password);
+	boolean findByUserName(String username);
+	User getUserByUserName(String username);
 
 }

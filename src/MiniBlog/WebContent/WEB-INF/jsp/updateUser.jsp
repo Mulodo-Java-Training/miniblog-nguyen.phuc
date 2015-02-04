@@ -119,7 +119,7 @@
 				<li><a href="#">My Account</a></li>
 				<li class="active">Update User's Information</li>
 			</ol>
-
+	
 			<!--Content-->
 			<div class="container-fluid"
 				style="padding-top: 15px; padding-bottom: 20px">
@@ -138,14 +138,18 @@
 					You have updated unsuccessfully
 				</div>
 				<form:form class="form-horizontal" role="form" method="post"
-					commandName="userinfo">
+					commandName="userinfo" action="${pageContext.request.contextPath}/home/account/${userinfo.username}" modelAttribute="userinfo">
 					<div class="row">
 						<div class="col-md-12">
 							<span class="btn btn-primary blue-tab no-blue-border-top">Basic
 								info</span>
 						</div>
 					</div>
-
+						<!-- HIDDENT -->
+						<form:hidden path="id" />
+						<form:hidden path="username" />
+        				<form:hidden path="password" />
+								
 
 					<div class="container-fluid blue-border">
 						<div class="col-md-6 col-md-offset-1" style="margin-top: 10px">
@@ -153,7 +157,7 @@
 								<label for="first-name" class="col-md-3 control-label">First
 									name</label>
 								<div class="col-md-9">
-									<form:input path="firstName" 
+									<form:input path="firstname" 
 										type="text" class="form-control" id="first-name"/>
 								</div>
 							</div>
@@ -161,7 +165,7 @@
 								<label for="last-name" class="col-md-3 control-label">Last
 									name</label>
 								<div class="col-md-9">
-									<form:input path="lastName" 
+									<form:input path="lastname" 
 										type="text" class="form-control" id="last-name"/>
 								</div>
 							</div>
@@ -173,14 +177,14 @@
 										<option value="1" selected="true">Male</option>
 									</select>
 								</div>
-							</div>
+							</div><!--  
 							<div class="form-group">
 								<label for="birthday" class="col-md-3 control-label">Birthday</label>
 								<div class="col-md-9" style="display: inline-flex">
-									<select class="styled-select" name="day" id="birthday">
+									<form:select path="gender"  class="styled-select" name="day" id="birthday">
 										<option value="0">Day</option>
 										<%  
-										
+										/*
 									     Calendar cal = Calendar.getInstance();
 										User userinfo = (User)request.getAttribute("userinfo");
 									    cal.setTime(userinfo.getBirthday());
@@ -198,10 +202,10 @@
 											}
 
 								              out.print(str);
-								         } %>
+								         } */%>
 
 
-									</select> <select class="styled-select" name="month" id="birthday">
+									</form:select> <select class="styled-select" name="month" id="birthday">
 										<option value="0">Month</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -231,6 +235,7 @@
 								</div>
 							</div>
 						</div>
+						-->
 
 						<div class="col-md-3" style="margin-top: 10px">
 							<div class="fileUpload btn btn-primary">
@@ -268,12 +273,12 @@
 							<div class="form-group">
 								<label for="city" class="col-md-3 control-label">City</label>
 								<div class="col-md-9">
-									<select class="styled-select" name="gender" id="city">
-										<option value="Ho Chi Minh" selected="true">Ho Chi
-											Minh</option>
-										<option value="Da Nang">Da Nang</option>
-										<option value="Ha Noi">Ha Noi</option>
-									</select>
+									<form:select path="city" class="styled-select" name="gender" id="city">
+										<form:option value="Ho Chi Minh" selected="true">Ho Chi
+											Minh</form:option>
+										<form:option value="Da Nang">Da Nang</form:option>
+										<form:option value="Ha Noi">Ha Noi</form:option>
+									</form:select>
 								</div>
 							</div>
 
@@ -316,7 +321,6 @@
 
 		</div>
 		<!--End Content-->
-	</div>
 	</div>
 
 
